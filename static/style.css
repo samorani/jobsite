@@ -1,0 +1,1236 @@
+:root {
+    --bg: #eef1f8;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #d9dee9;
+    --accent: #1e4460;
+    --accent-dark: #14324a;
+    --gold: #eab41e;
+    --gold-soft: #fdf6e0;
+    --gold-line: #f2d78d;
+    --error-bg: #fef2f2;
+    --error-text: #b91c1c;
+    --error-border: #fecaca;
+
+    /* Event categories. Each one pairs with a .cat-* class below. */
+    --cat-subcontractor: #2563eb;
+    --cat-inspection: #d97706;
+    --cat-delivery: #0d9488;
+    --cat-client: #7c3aed;
+    --cat-payment: #16a34a;
+    --cat-other: #64748b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    /* 17px base: this app is used on phones, outdoors, by people who are not
+       looking for small grey text. */
+    font: 17px/1.5 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+h1, h2, h3 {
+    margin: 0;
+    line-height: 1.25;
+}
+
+/* ---------------------------------------------------------------- Auth --- */
+
+body.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    background: linear-gradient(135deg, #eef2f6 0%, #dae5ee 100%);
+}
+
+.auth-page .card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 36px 32px;
+    box-shadow: 0 12px 32px rgba(31, 41, 55, 0.12);
+}
+
+.auth-page .card h1 {
+    margin-bottom: 6px;
+    font-size: 26px;
+}
+
+/* -------------------------------------------------------------- Shell --- */
+
+.topbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 20px;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.who {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.topbar-link {
+    font-size: 15px;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 24px 20px 64px;
+}
+
+.crumb {
+    margin: 0 0 12px;
+    font-size: 15px;
+}
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.page-head h1 {
+    font-size: 28px;
+}
+
+.head-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.auth-page .subtitle {
+    margin-bottom: 26px;
+}
+
+.panel {
+    margin-bottom: 22px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.panel h2 {
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.panel-warn {
+    border-color: #fcd9b6;
+    background: #fffaf3;
+}
+
+.panel-warn h2 {
+    color: #9a3412;
+}
+
+.panel-danger {
+    border-color: var(--error-border);
+    background: var(--error-bg);
+}
+
+.panel-danger h2 {
+    color: var(--error-text);
+}
+
+.empty {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.notes {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+/* ------------------------------------------------------------- Forms --- */
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.hint {
+    font-weight: 400;
+    text-transform: none;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.field-row .field {
+    flex: 1 1 180px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 11px 13px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text);
+    background: #fbfcfe;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(30, 68, 96, 0.18);
+}
+
+.stack-form {
+    max-width: 560px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+/* Hide the browser's own reveal/clear buttons (Edge, IE) so only ours shows. */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="text"]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 46px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background: #eef0f6;
+    color: var(--text);
+}
+
+.toggle-password:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.toggle-password svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Show exactly one icon: the eye by default, the crossed-out eye while
+   revealed. Driven by aria-pressed so the visual state cannot drift from the
+   accessibility state. */
+.toggle-password .icon-eye-off,
+.toggle-password[aria-pressed="true"] .icon-eye {
+    display: none;
+}
+
+.toggle-password[aria-pressed="true"] .icon-eye-off {
+    display: block;
+}
+
+/* ----------------------------------------------------------- Buttons --- */
+
+.btn,
+button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text);
+    background: #f3f4f8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+    background: #e9ebf2;
+    text-decoration: none;
+}
+
+.btn-primary,
+.auth-page button[type="submit"] {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-primary:hover,
+.auth-page button[type="submit"]:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+.auth-page button[type="submit"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+}
+
+.btn-danger {
+    color: #fff;
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+    border-color: #b91c1c;
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 11px 14px;
+    font-size: 15px;
+    color: var(--error-text);
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
+    border-radius: 8px;
+}
+
+.foot {
+    margin: 22px 0 0;
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------- Projects --- */
+
+/* ------------------------------------------------------- Event lists --- */
+
+.event-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.event-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+}
+
+.event-row:first-child {
+    border-top: none;
+}
+
+/* The date block: fixed width so every row lines up into a column the eye can
+   run down, and large enough to read at arm's length. */
+.event-date {
+    flex: 0 0 78px;
+    text-align: center;
+    line-height: 1.15;
+}
+
+.event-dow {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.event-day {
+    display: block;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.event-time {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.event-main {
+    flex: 1;
+    min-width: 0;
+    color: var(--text);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.event-main:hover .event-title {
+    text-decoration: underline;
+}
+
+.event-title {
+    display: block;
+    font-size: 16.5px;
+    font-weight: 600;
+}
+
+.event-meta {
+    display: block;
+    margin: 2px 0 0;
+    font-size: 13.5px;
+    color: var(--muted);
+}
+
+/* Category shows as a small dot rather than a coloured pill -- the date is the
+   loud thing in the row now, and two loud things is none. */
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    border-radius: 50%;
+    vertical-align: baseline;
+}
+
+.is-done .event-title {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.is-done .event-day {
+    color: var(--muted);
+}
+
+.panel-warn .event-day {
+    color: #9a3412;
+}
+
+.tag {
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+/* Category colours for the list tags. */
+.cat-subcontractor { background: var(--cat-subcontractor); }
+.cat-inspection    { background: var(--cat-inspection); }
+.cat-delivery      { background: var(--cat-delivery); }
+.cat-client        { background: var(--cat-client); }
+.cat-payment       { background: var(--cat-payment); }
+.cat-other         { background: var(--cat-other); }
+
+@media (max-width: 640px) {
+    .page-head h1 {
+        font-size: 24px;
+    }
+
+}
+
+/* ------------------------------------------------------- Voice memos --- */
+
+.panel-record {
+    border-color: #cfe0ee;
+    background: linear-gradient(135deg, #f4f8fc 0%, #e9f1f8 100%);
+}
+
+.record-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+}
+
+.record-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.record-btn:hover {
+    background: var(--accent-dark);
+}
+
+.record-btn:disabled {
+    background: var(--cat-other);
+    cursor: default;
+}
+
+.record-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.record-btn.is-recording {
+    background: #dc2626;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0.16); }
+}
+
+/* Respect people who have asked the OS for less motion. */
+@media (prefers-reduced-motion: reduce) {
+    .record-btn.is-recording {
+        animation: none;
+    }
+}
+
+.record-copy {
+    flex: 1 1 260px;
+}
+
+#record-status {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* ----------------------------------------------------------- Drafts --- */
+
+/* Gold, not blue: a draft is the hard-hat "look at this" state, and it needs to
+   read differently from the confirmed items right below it. */
+.panel-draft {
+    border-color: var(--gold-line);
+    background: var(--gold-soft);
+}
+
+.panel-draft h2 {
+    color: #8a5d06;
+}
+
+.draft-list {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.draft-row {
+    padding: 14px 16px;
+    background: var(--card);
+    /* Dashed all round: this is not a commitment yet. */
+    border: 2px dashed var(--gold-line);
+    border-radius: 10px;
+}
+
+.draft-title {
+    margin: 8px 0 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.draft-notes {
+    margin: 4px 0 0;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.draft-heard {
+    margin: 10px 0 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    background: #f7f8fc;
+    border-left: 3px solid var(--border);
+    border-radius: 0 6px 6px 0;
+}
+
+.draft-heard span {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.draft-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-small {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.btn-quiet {
+    color: var(--muted);
+    background: transparent;
+    border-color: transparent;
+}
+
+.btn-quiet:hover {
+    color: var(--error-text);
+    background: var(--error-bg);
+}
+
+.draft-banner {
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #8a5d06;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-line);
+    border-radius: 8px;
+}
+
+.draft-banner strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* ---------------------------------------------------------- History --- */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter {
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    background: #f3f4f8;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.filter:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.filter.is-on {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* A six-column table cannot shrink to phone width; scroll it rather than
+   crush it, and keep the page itself from scrolling sideways. */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table.history {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+table.history th {
+    padding: 8px 12px 8px 0;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border);
+}
+
+table.history td {
+    padding: 12px 12px 12px 0;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+}
+
+table.history tr:last-child td {
+    border-bottom: none;
+}
+
+table.history td:nth-child(n+3) {
+    white-space: nowrap;
+}
+
+.row-done a {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.row-missed td {
+    background: #fffaf3;
+}
+
+.col-quiet {
+    color: var(--muted);
+}
+
+.row-notes {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.mini-tag {
+    margin-left: 6px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8a5d06;
+    background: var(--gold-soft);
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+.stamp-done {
+    font-weight: 600;
+    color: #15803d;
+}
+
+.stamp-missed {
+    font-weight: 600;
+    color: #9a3412;
+}
+
+/* Visually hidden, still announced by screen readers. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ------------------------------------------------- Background queue --- */
+
+.problem-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.problem-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid #fcd9b6;
+    border-radius: 10px;
+}
+
+.problem-msg {
+    margin: 0;
+    font-weight: 600;
+}
+
+.problem-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* ------------------------------------------------------------- Brand --- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.brand img {
+    width: 32px;
+    height: 32px;
+}
+
+.brand span {
+    color: var(--accent);
+    letter-spacing: -0.01em;
+}
+
+.auth-logo {
+    display: block;
+    width: 100%;
+    max-width: 186px;
+    height: auto;
+    margin: 0 auto 22px;
+}
+
+/* The record panel carries no instructions: a big button, and live status only
+   once there is something to report. */
+.record-status:empty,
+.record-queue:empty {
+    display: none;
+}
+
+.record-queue {
+    margin: 4px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.record-status {
+    margin: 0;
+    font-weight: 600;
+}
+
+.record-demo {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ------------------------------------------------- Dashboard layout --- */
+
+.panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.panel-head h2 {
+    margin: 0;
+}
+
+.more-note {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.job-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.job-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+}
+
+.job-list li:first-child {
+    border-top: none;
+}
+
+.job-list a {
+    font-size: 16px;
+}
+
+.job-count {
+    font-size: 13.5px;
+    color: var(--muted);
+}
+
+/* ----------------------------------------------------- Draft rows --- */
+
+.draft-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.draft-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.draft-title {
+    margin: 0;
+    font-size: 16.5px;
+    font-weight: 600;
+}
+
+.draft-row .event-date {
+    padding-top: 2px;
+}
+
+/* A draft with no job cannot be filed, so make the gap obvious. */
+.draft-row.needs-job {
+    border-color: var(--accent);
+}
+
+.draft-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.draft-actions select {
+    width: auto;
+    min-width: 170px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.draft-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.draft-row > .draft-body {
+    flex: 1 1 100%;
+}
+
+/* ----------------------------------------------------------- Welcome --- */
+
+/* A brand-new account has no jobs, so it gets one door and nothing else --
+   an empty record button and three empty lists would only be noise. */
+.welcome {
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 36px 28px;
+    text-align: center;
+}
+
+.welcome-logo {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
+}
+
+.welcome h1 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.welcome p {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+.btn-big {
+    padding: 14px 26px;
+    font-size: 16px;
+}
+
+/* A draft that arrived on its own should announce itself briefly, the way a
+   new message does, rather than silently appearing under the cursor. */
+#drafts-slot.just-arrived .panel-draft {
+    animation: draft-in 0.9s ease-out;
+}
+
+@keyframes draft-in {
+    from { box-shadow: 0 0 0 3px var(--gold); }
+    to   { box-shadow: 0 0 0 3px rgba(234, 180, 30, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #drafts-slot.just-arrived .panel-draft {
+        animation: none;
+    }
+}
+
+.record-alt {
+    margin: 14px 0 0;
+    font-size: 14px;
+}
+
+.record-alt a {
+    color: var(--muted);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.record-alt a:hover {
+    color: var(--accent);
+}
+
+/* ------------------------------------------------- Mark done button --- */
+
+.done-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 8px 15px 8px 9px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--muted);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.done-btn:hover {
+    color: #15803d;
+    background: #f2fbf5;
+    border-color: #bbe7c8;
+}
+
+.done-btn:active {
+    transform: scale(0.96);
+}
+
+.done-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* An empty ring at rest: something to aim at, and plainly not ticked yet. */
+.done-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: currentColor;
+    background: transparent;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.done-btn:hover .done-box {
+    border-color: #bbe7c8;
+}
+
+.done-box svg {
+    width: 14px;
+    height: 14px;
+    /* The check is drawn rather than shown: the stroke is hidden behind a dash
+       offset that animates to zero, so the tick writes itself in. */
+    stroke-dasharray: 26;
+    stroke-dashoffset: 26;
+    opacity: 0;
+    transition: stroke-dashoffset 0.3s ease-out, opacity 0.15s;
+}
+
+.done-btn:hover .done-box svg {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+}
+
+/* Mid-request, and for anything already finished: filled, ticked, green. */
+.done-btn.is-checking,
+.done-btn.is-done {
+    color: #15803d;
+    background: #eefaf1;
+    border-color: #bbe7c8;
+}
+
+.done-btn.is-checking .done-box,
+.done-btn.is-done .done-box {
+    background: var(--cat-payment);
+    border-color: var(--cat-payment);
+}
+
+.done-btn.is-checking .done-box svg,
+.done-btn.is-done .done-box svg {
+    color: #fff;
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+/* A small pop as it ticks, so the tap is unmistakably registered. */
+.done-btn.is-checking .done-box {
+    animation: done-pop 0.32s ease-out;
+}
+
+@keyframes done-pop {
+    40% { transform: scale(1.18); }
+}
+
+/* Reopening a finished item is a real action, so say so rather than silently
+   un-ticking it. */
+.done-btn.is-done:hover .done-text {
+    text-decoration: line-through;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .done-box svg { transition: none; }
+    .done-btn.is-checking .done-box { animation: none; }
+    .done-btn:active { transform: none; }
+}
+
+/* ------------------------------------------- Telling them what to say --- */
+
+/* "Record a memo" meant nothing on its own. One line of instruction and one
+   real example -- naming one of their own jobs, so it reads as a template
+   rather than as decoration. */
+.record-how {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.record-how b {
+    font-weight: 700;
+}
+
+.record-example {
+    margin: 5px 0 0;
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--gold-line);
+    padding-left: 10px;
+}
+
+.record-status:not(:empty),
+.record-queue:not([hidden]) {
+    margin-top: 10px;
+}
+
+/* --------------------------------------- Event rows on a narrow screen --- */
+
+/* On a phone the date, the reminder and the button cannot share one line
+   without the text being squeezed to a column of single words. Let the button
+   drop to its own line instead, still right-aligned. */
+@media (max-width: 620px) {
+    .event-row {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .event-row > form {
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2px;
+    }
+
+    .event-date {
+        flex-basis: 62px;
+    }
+
+    .event-day {
+        font-size: 19px;
+    }
+}
